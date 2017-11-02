@@ -1,0 +1,12 @@
+# for yml files
+[YAML]
+files = **.yml
+bears = YAMLLintBear,LineLengthBear,ShellCheckBear
+
+[Shell]
+files = **.sh
+bears = ShellCheckBear
+
+[MD]
+files = **.md
+bears = MarkdownBear

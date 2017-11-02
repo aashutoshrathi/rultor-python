@@ -22,4 +22,5 @@ script:
      export PATH=$(npm bin):$PATH &&
      python3 setup.py install &&
      cd ../coala &&
-     coala --ci"
+     coala --ci > log.txt
+     cat log.txt"
