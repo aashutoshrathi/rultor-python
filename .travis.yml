@@ -5,6 +5,7 @@ script:
   - docker build -t rultor-python -f Dockerfile .
   - docker images
   # Test building and installing coala
+  - docker run -v=$(pwd):/app --workdir=/app coala/base coala --ci
   - >
     docker run rultor-python sh -c
     "git clone https://github.com/coala/coala &&
@@ -22,6 +23,4 @@ script:
      export PATH=$(npm bin):$PATH &&
      python3 setup.py install &&
      cd ../coala &&
-     coala --ci > log.txt
-     cat log.txt"
-  - ls
+     coala --ci"
