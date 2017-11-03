@@ -7,7 +7,7 @@ script:
   # Test building and installing coala
   - docker run -v=$(pwd):/app --workdir=/app coala/base coala --ci
   - >
-    docker run rultor-python sh -c
+    docker run --rm rultor-python sh -c
     "git clone https://github.com/coala/coala &&
      cd coala &&
      pip3 install -r requirements.txt &&
