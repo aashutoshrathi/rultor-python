@@ -2,6 +2,8 @@ language: generic
 services: docker
 
 script:
+  - docker run -v=$(pwd):/app -v=/tmp/coala:/cache --workdir=/app coala/base coala --ci
+  - ls -a
   - docker build -t rultor-python -f Dockerfile .
   - docker images
   # Test building and installing coala
@@ -16,8 +18,8 @@ script:
      git clone https://github.com/coala/coala-bears &&
      cd coala-bears &&
      pip3 install -r requirements.txt &&
-     python3 -m nltk.downloader punkt \
-                                averaged_perceptron_tagger &&
+     python3 -m nltk.downloader punkt
+     averaged_perceptron_tagger &&
      npm install &&
      export PATH=$(npm bin):$PATH &&
      python3 setup.py install &&
